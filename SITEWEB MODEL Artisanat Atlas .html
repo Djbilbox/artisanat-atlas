@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artisanat Atlas — L'art marocain authentique</title>
+  <meta name="description" content="Artisanat Atlas — Poterie de Fès, Zellige, Tissage Berbère, Maroquinerie. Pièces uniques faites à la main par des artisans marocains." />
+  <meta property="og:title" content="Artisanat Atlas" />
+  <meta property="og:description" content="L'artisanat marocain authentique — fait main, héritage ancestral." />
+  <meta property="og:image" content="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/691d668c8feeb5b2e7d53f88b09e82916e351bdb.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+  <style>
+    /* ── Design Tokens ─────────────────────────────────── */
+    :root, [data-theme="light"] {
+      --color-bg:             #f6f1e9;
+      --color-surface:        #faf7f2;
+      --color-surface-2:      #fff9f2;
+      --color-surface-offset: #ede7dc;
+      --color-divider:        #ddd5c6;
+      --color-border:         #cfc8b8;
+
+      --color-text:           #231a0f;
+      --color-text-muted:     #7a6b59;
+      --color-text-faint:     #b5a998;
+      --color-text-inverse:   #faf7f2;
+
+      --color-primary:        #b85c24;
+      --color-primary-hover:  #974a1a;
+      --color-primary-active: #763b13;
+      --color-primary-light:  #f0e0d2;
+
+      --color-accent:         #2c7a6e;
+      --color-accent-hover:   #1f5e54;
+      --color-accent-light:   #cce4e0;
+
+      --color-gold:           #c49a2e;
+
+      --radius-sm:  0.25rem;
+      --radius-md:  0.5rem;
+      --radius-lg:  0.75rem;
+      --radius-xl:  1.25rem;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px oklch(0.18 0.04 50 / 0.08);
+      --shadow-md: 0 4px 16px oklch(0.18 0.04 50 / 0.10);
+      --shadow-lg: 0 12px 40px oklch(0.18 0.04 50 / 0.14);
+
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+
+      --text-xs:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl:  clamp(2.5rem, 1rem + 4vw, 5rem);
+      --text-hero: clamp(3rem, 0.5rem + 7vw, 8rem);
+
+      --font-display: 'Cormorant Garamond', 'Georgia', serif;
+      --font-body:    'Satoshi', 'Helvetica Neue', sans-serif;
+
+      --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      --content-default: 1140px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg:             #191410;
+      --color-surface:        #1f1a15;
+      --color-surface-2:      #261f18;
+      --color-surface-offset: #2a231b;
+      --color-divider:        #332a21;
+      --color-border:         #3d3228;
+      --color-text:           #e8ddd0;
+      --color-text-muted:     #8a7b6a;
+      --color-text-faint:     #5a4f42;
+      --color-text-inverse:   #1f1a15;
+      --color-primary:        #d4784d;
+      --color-primary-hover:  #e8895c;
+      --color-primary-active: #f09a6f;
+      --color-primary-light:  #3a2215;
+      --color-accent:         #4da898;
+      --color-accent-hover:   #63c0b0;
+      --color-accent-light:   #1a3530;
+      --color-gold:           #d4ab3e;
+      --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.25);
+      --shadow-md: 0 4px 16px oklch(0 0 0 / 0.35);
+      --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg:             #191410;
+        --color-surface:        #1f1a15;
+        --color-surface-2:      #261f18;
+        --color-surface-offset: #2a231b;
+        --color-divider:        #332a21;
+        --color-border:         #3d3228;
+        --color-text:           #e8ddd0;
+        --color-text-muted:     #8a7b6a;
+        --color-text-faint:     #5a4f42;
+        --color-text-inverse:   #1f1a15;
+        --color-primary:        #d4784d;
+        --color-primary-hover:  #e8895c;
+        --color-primary-active: #f09a6f;
+        --color-primary-light:  #3a2215;
+        --color-accent:         #4da898;
+        --color-accent-hover:   #63c0b0;
+        --color-accent-light:   #1a3530;
+        --color-gold:           #d4ab3e;
+        --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.25);
+        --shadow-md: 0 4px 16px oklch(0 0 0 / 0.35);
+        --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.45);
+      }
+    }
+
+    /* ── Reset / Base ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+      -webkit-font-smoothing: antialiased;
+      hanging-punctuation: first last;
+    }
+    body {
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.65;
+    }
+    img, video { display: block; max-width: 100%; height: auto; }
+    ul[role="list"] { list-style: none; }
+    input, button, textarea, select { font: inherit; color: inherit; }
+    h1,h2,h3,h4 { text-wrap: balance; line-height: 1.15; font-family: var(--font-display); }
+    p, li { text-wrap: pretty; max-width: 72ch; }
+    button { cursor: pointer; background: none; border: none; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: color-mix(in oklch, var(--color-primary) 20%, transparent); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+
+    /* ── Scroll animations ─────────────────────────────── */
+    .fade-in { opacity: 1; }
+    @supports (animation-timeline: scroll()) {
+      .fade-in {
+        opacity: 0;
+        animation: fade-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 75%;
+      }
+    }
+    @keyframes fade-reveal { to { opacity: 1; } }
+
+    /* ── Layout ────────────────────────────────────────── */
+    .container {
+      max-width: var(--content-default);
+      margin-inline: auto;
+      padding-inline: clamp(var(--space-4), 4vw, var(--space-12));
+    }
+
+    /* ── Header / Nav ──────────────────────────────────── */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: color-mix(in oklch, var(--color-bg) 88%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--color-text);
+    }
+    .nav-logo svg { color: var(--color-primary); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--color-text); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .btn-icon {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+      transition: background var(--transition), color var(--transition);
+    }
+    .btn-icon:hover { background: var(--color-surface-offset); color: var(--color-text); }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      background: var(--color-primary);
+      color: #fff;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      border-radius: var(--radius-md);
+      letter-spacing: 0.02em;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover { background: var(--color-primary-hover); box-shadow: var(--shadow-sm); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      border: 1px solid oklch(from var(--color-text) l c h / 0.15);
+      border-radius: var(--radius-md);
+      letter-spacing: 0.02em;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .btn-ghost:hover { background: var(--color-surface); border-color: oklch(from var(--color-text) l c h / 0.28); }
+
+    /* Mobile nav toggle */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: var(--space-2);
+      cursor: pointer;
+      color: var(--color-text);
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-6) var(--space-4);
+      z-index: 99;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-divider);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--color-text); }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn-primary { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* ── Hero ──────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        oklch(0.12 0.04 45 / 0.82) 0%,
+        oklch(0.12 0.04 45 / 0.45) 60%,
+        oklch(0.12 0.04 45 / 0.15) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding-block: var(--space-24);
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--color-gold);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-5);
+    }
+    .hero-kicker::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--color-gold);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 300;
+      color: #faf7f2;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-6);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+    .hero-desc {
+      font-size: var(--text-base);
+      color: oklch(0.92 0.02 70 / 0.85);
+      max-width: 52ch;
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+    }
+    .hero-actions {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .hero-actions .btn-primary {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--text-base);
+    }
+    .hero-actions .btn-ghost {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--text-base);
+      color: #faf7f2;
+      border-color: oklch(1 0 0 / 0.30);
+    }
+    .hero-actions .btn-ghost:hover {
+      background: oklch(1 0 0 / 0.08);
+      border-color: oklch(1 0 0 / 0.50);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      color: oklch(1 0 0 / 0.55);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, transparent, oklch(1 0 0 / 0.5));
+      animation: scroll-line 2s ease-in-out infinite;
+    }
+    @keyframes scroll-line {
+      0%, 100% { transform: scaleY(0.3); transform-origin: top; }
+      50% { transform: scaleY(1); }
+    }
+
+    /* ── Section titles ────────────────────────────────── */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+    .section-kicker::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1px;
+      background: currentColor;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+    .section-title em { font-style: italic; color: var(--color-primary); }
+    .section-sub {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      max-width: 56ch;
+      line-height: 1.7;
+    }
+
+    /* ── Histoire / About ──────────────────────────────── */
+    .about {
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+      background: var(--color-surface);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--space-10), 6vw, var(--space-20));
+      align-items: center;
+    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text { }
+    .about-text p {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: var(--space-4);
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .stat {
+      padding: var(--space-4);
+      background: var(--color-surface-2);
+      border-radius: var(--radius-lg);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.06);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 500;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: var(--space-1);
+    }
+    .stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: var(--space-6);
+      left: calc(-1 * var(--space-6));
+      background: var(--color-primary);
+      color: #fff;
+      padding: var(--space-4) var(--space-5);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .about-img-badge span {
+      display: block;
+      font-size: var(--text-xs);
+      font-family: var(--font-body);
+      font-weight: 400;
+      opacity: 0.8;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: var(--space-1);
+    }
+    @media (max-width: 768px) { .about-img-badge { left: var(--space-4); } }
+
+    /* ── Collections ───────────────────────────────────── */
+    .collections {
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+    }
+    .collections-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: var(--space-12);
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-4);
+    }
+    .card { overflow: hidden; border-radius: var(--radius-xl); background: var(--color-surface); box-shadow: var(--shadow-sm); transition: box-shadow var(--transition), transform var(--transition); }
+    .card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .card-img-wrap { overflow: hidden; }
+    .card-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+      display: block;
+    }
+    .card:hover .card-img { transform: scale(1.04); }
+    .card-body { padding: var(--space-5) var(--space-5) var(--space-6); }
+    .card-tag {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .card-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      max-width: 42ch;
+    }
+    .card-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-divider);
+    }
+    .card-amount {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 400;
+      color: var(--color-text);
+    }
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-primary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: gap var(--transition);
+    }
+    .card:hover .card-cta { gap: var(--space-2); }
+
+    /* Grid layout: large + small */
+    .col-span-5  { grid-column: span 5; }
+    .col-span-4  { grid-column: span 4; }
+    .col-span-3  { grid-column: span 3; }
+    .col-span-7  { grid-column: span 7; }
+    .col-span-6  { grid-column: span 6; }
+
+    .card-large .card-img-wrap { aspect-ratio: 3/4; }
+    .card-medium .card-img-wrap { aspect-ratio: 4/3; }
+    .card-small .card-img-wrap { aspect-ratio: 1/1; }
+
+    @media (max-width: 900px) {
+      .col-span-5, .col-span-4, .col-span-3, .col-span-7, .col-span-6 { grid-column: span 12; }
+      .card-large .card-img-wrap { aspect-ratio: 4/3; }
+    }
+
+    /* ── Savoir-Faire ───────────────────────────────────── */
+    .savoir-faire {
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+      background: var(--color-surface);
+    }
+    .sf-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--space-10), 6vw, var(--space-20));
+      align-items: center;
+    }
+    @media (max-width: 768px) { .sf-layout { grid-template-columns: 1fr; } }
+    .sf-image-stack {
+      position: relative;
+      height: 560px;
+    }
+    .sf-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+    }
+    .sf-img-sec {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 58%;
+      height: 56%;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 4px solid var(--color-bg);
+    }
+    @media (max-width: 768px) {
+      .sf-image-stack { height: 360px; }
+      .sf-img-main { width: 70%; height: 75%; }
+      .sf-img-sec { width: 55%; height: 50%; }
+    }
+    .sf-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+    .sf-step {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .sf-step-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-full);
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 500;
+    }
+    .sf-step-content h3 {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-1);
+    }
+    .sf-step-content p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Bande décorative zellige ──────────────────────── */
+    .zellige-band {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--color-primary) 0px, var(--color-primary) 14px,
+        var(--color-gold) 14px, var(--color-gold) 28px,
+        var(--color-accent) 28px, var(--color-accent) 42px,
+        var(--color-surface) 42px, var(--color-surface) 56px
+      );
+    }
+
+    /* ── Témoignages ────────────────────────────────────── */
+    .testimonials {
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+    }
+    .testimonials-header { text-align: center; margin-bottom: var(--space-12); }
+    .testimonials-header .section-sub { margin-inline: auto; }
+    .testimonials-header .section-kicker { justify-content: center; }
+    .testimonials-header .section-kicker::before { display: none; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+    @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+    .testi-card {
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.07);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .testi-stars { display: flex; gap: 2px; }
+    .testi-stars span { color: var(--color-gold); font-size: var(--text-base); }
+    .testi-text {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-divider);
+    }
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-full);
+      background: var(--color-surface-offset);
+      overflow: hidden;
+      object-fit: cover;
+    }
+    .testi-name {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .testi-location {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* ── CTA Banner ─────────────────────────────────────── */
+    .cta-banner {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+    }
+    .cta-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .cta-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(in oklch, oklch(0.12 0.05 45 / 0.78), oklch(0.08 0.06 30 / 0.6));
+    }
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding-block: var(--space-16);
+    }
+    .cta-content .section-kicker { justify-content: center; color: var(--color-gold); }
+    .cta-content .section-kicker::before { display: none; }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 300;
+      color: #faf7f2;
+      line-height: 1.1;
+      margin-bottom: var(--space-4);
+      max-width: 18ch;
+      margin-inline: auto;
+    }
+    .cta-title em { font-style: italic; color: var(--color-gold); }
+    .cta-sub {
+      font-size: var(--text-base);
+      color: oklch(0.92 0.02 70 / 0.8);
+      max-width: 48ch;
+      margin: 0 auto var(--space-8);
+    }
+    .cta-actions { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+    .cta-actions .btn-primary { padding: var(--space-4) var(--space-8); font-size: var(--text-base); }
+    .cta-actions .btn-ghost { color: #faf7f2; border-color: oklch(1 0 0 / 0.35); padding: var(--space-4) var(--space-8); font-size: var(--text-base); }
+    .cta-actions .btn-ghost:hover { background: oklch(1 0 0 / 0.08); }
+
+    /* ── Contact ────────────────────────────────────────── */
+    .contact {
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+      background: var(--color-surface);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(var(--space-10), 6vw, var(--space-20));
+      align-items: start;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info { }
+    .contact-info p {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: var(--space-8);
+    }
+    .contact-items { display: flex; flex-direction: column; gap: var(--space-4); }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    .contact-form {
+      background: var(--color-surface-2);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.07);
+      border-radius: var(--radius-xl);
+      padding: clamp(var(--space-6), 3vw, var(--space-10));
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-4); }
+    .form-group:last-of-type { margin-bottom: var(--space-6); }
+    .form-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .form-input, .form-textarea {
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.12);
+      border-radius: var(--radius-md);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--color-text-faint); }
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 18%, transparent);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .footer {
+      background: var(--color-text);
+      color: var(--color-text-inverse);
+      padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: clamp(var(--space-8), 4vw, var(--space-16));
+      margin-bottom: var(--space-12);
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand p {
+      font-size: var(--text-sm);
+      color: oklch(from var(--color-text-inverse) l c h / 0.55);
+      line-height: 1.7;
+      margin: var(--space-4) 0 var(--space-6);
+      max-width: 36ch;
+    }
+    .footer-socials { display: flex; gap: var(--space-3); }
+    .footer-social {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-md);
+      background: oklch(from var(--color-text-inverse) l c h / 0.10);
+      color: oklch(from var(--color-text-inverse) l c h / 0.65);
+      font-size: var(--text-sm);
+      transition: background var(--transition), color var(--transition);
+    }
+    .footer-social:hover { background: var(--color-primary); color: #fff; }
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: oklch(from var(--color-text-inverse) l c h / 0.55);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+    .footer-col ul li a {
+      font-size: var(--text-sm);
+      color: oklch(from var(--color-text-inverse) l c h / 0.60);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--color-text-inverse); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-8);
+      border-top: 1px solid oklch(from var(--color-text-inverse) l c h / 0.10);
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .footer-bottom p {
+      font-size: var(--text-xs);
+      color: oklch(from var(--color-text-inverse) l c h / 0.40);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: var(--space-5);
+    }
+    .footer-bottom-links a {
+      font-size: var(--text-xs);
+      color: oklch(from var(--color-text-inverse) l c h / 0.40);
+      transition: color var(--transition);
+    }
+    .footer-bottom-links a:hover { color: oklch(from var(--color-text-inverse) l c h / 0.80); }
+
+    /* ── Zellige pattern separator ─────────────────────── */
+    .pattern-sep {
+      width: 60px; height: 2px;
+      background: linear-gradient(to right, var(--color-primary), var(--color-gold));
+      border-radius: 2px;
+      margin: var(--space-5) 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="nav" role="navigation" aria-label="Navigation principale">
+
+        <a href="#" class="nav-logo" aria-label="Artisanat Atlas — Accueil">
+          <!-- SVG Logo inline -->
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="18,3 33,11 33,25 18,33 3,25 3,11" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <polygon points="18,9 27,14 27,22 18,27 9,22 9,14" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+            <circle cx="18" cy="18" r="3" fill="currentColor"/>
+          </svg>
+          Artisanat Atlas
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#histoire">Histoire</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#savoir-faire">Savoir-faire</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="btn-icon" data-theme-toggle aria-label="Basculer le thème sombre/clair">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a href="#collections" class="btn-primary">Explorer</a>
+          <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" id="nav-toggle">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+    <a href="#histoire" onclick="closeMobileMenu()">Histoire</a>
+    <a href="#collections" onclick="closeMobileMenu()">Collections</a>
+    <a href="#savoir-faire" onclick="closeMobileMenu()">Savoir-faire</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="#collections" class="btn-primary" style="justify-content:center; margin-top:0.5rem;" onclick="closeMobileMenu()">Explorer</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <main id="main-content">
+    <section class="hero" aria-label="Présentation Artisanat Atlas">
+      <img
+        class="hero-bg"
+        src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/691d668c8feeb5b2e7d53f88b09e82916e351bdb.jpg"
+        alt="Village berbère dans les montagnes de l'Atlas marocain"
+        width="1800" height="1200"
+        fetchpriority="high"
+      />
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-kicker">Artisanat marocain authentique</p>
+          <h1 class="hero-title">L'âme de<br>l'<em>Atlas</em></h1>
+          <p class="hero-desc">Des pièces uniques façonnées à la main par des maîtres artisans dans les médinas et les villages berbères du Maroc. Chaque objet raconte une histoire de siècles.</p>
+          <div class="hero-actions">
+            <a href="#collections" class="btn-primary">Découvrir les collections</a>
+            <a href="#histoire" class="btn-ghost">Notre histoire</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Défiler</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── ZELLIGE BAND ── -->
+    <div class="zellige-band" aria-hidden="true"></div>
+
+    <!-- ── HISTOIRE ── -->
+    <section class="about" id="histoire" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text fade-in">
+            <p class="section-kicker">Notre histoire</p>
+            <h2 class="section-title" id="about-title">Un héritage<br>de <em>siècles</em></h2>
+            <div class="pattern-sep"></div>
+            <p>Fondée au cœur de Marrakech, Artisanat Atlas est née d'une passion pour les savoir-faire ancestraux marocains. Nous collaborons directement avec des artisans certifiés, gardiens d'une tradition transmise de génération en génération.</p>
+            <p>De la poterie de Fès aux tapis berbères du Haut-Atlas, chaque pièce est sélectionnée avec soin, garantissant son authenticité, sa qualité et le respect des artisans qui la créent.</p>
+            <a href="#collections" class="btn-primary" style="margin-top: 1.5rem; width: fit-content;">Voir les collections</a>
+
+            <div class="about-stats">
+              <div class="stat">
+                <div class="stat-num">120+</div>
+                <div class="stat-label">Artisans partenaires</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">15</div>
+                <div class="stat-label">Régions du Maroc</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">2 000+</div>
+                <div class="stat-label">Pièces uniques</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num">8 ans</div>
+                <div class="stat-label">D'expérience</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-image-wrap fade-in">
+            <img
+              class="about-img"
+              src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/703db50a700aef7a108fd1e09169327a6b289f79.jpg"
+              alt="Poterie artisanale marocaine Tangia en terre cuite"
+              width="710" height="888"
+              loading="lazy"
+            />
+            <div class="about-img-badge">
+              Fait à la main
+              <span>100% authentique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COLLECTIONS ── -->
+    <section class="collections" id="collections" aria-labelledby="collections-title">
+      <div class="container">
+        <div class="collections-header fade-in">
+          <div>
+            <p class="section-kicker">Nos collections</p>
+            <h2 class="section-title" id="collections-title">L'art marocain<br>en <em>quatre disciplines</em></h2>
+          </div>
+          <a href="#contact" class="btn-ghost">Commande sur mesure</a>
+        </div>
+
+        <div class="collection-grid">
+          <!-- Card 1 — Large zellige -->
+          <article class="card card-large col-span-5 fade-in">
+            <div class="card-img-wrap">
+              <img
+                class="card-img"
+                src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/abaf5280ba318de41096641a565785eab48a03b2.jpg"
+                alt="Riad marocain avec zellige et fontaine centrale"
+                width="800" height="1000"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Zellige</span>
+              <h3 class="card-title">Carreaux Zellige de Fès</h3>
+              <p class="card-desc">Mosaïque géométrique taillée à la main, posée par des mâalems. Chaque pan raconte l'infini des formes islamiques.</p>
+              <div class="card-price">
+                <span class="card-amount">À partir de 380 €</span>
+                <a href="#contact" class="card-cta">Commander <i data-lucide="arrow-right" style="width:13px;height:13px"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Right column — 2 smaller cards stacked -->
+          <div class="col-span-7" style="display:flex;flex-direction:column;gap:var(--space-4);">
+            <article class="card card-medium fade-in">
+              <div style="display:grid;grid-template-columns:1.1fr 1fr;height:100%">
+                <div class="card-img-wrap" style="height:100%;min-height:200px">
+                  <img
+                    class="card-img"
+                    src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ad40e6c2da522b38817f7972f71b9472845b3432.jpg"
+                    alt="Assiettes en céramique marocaine colorées de Fès"
+                    width="550" height="368"
+                    loading="lazy"
+                    style="height:100%"
+                  />
+                </div>
+                <div class="card-body" style="display:flex;flex-direction:column;justify-content:space-between">
+                  <div>
+                    <span class="card-tag">Céramique</span>
+                    <h3 class="card-title">Céramiques de Fès</h3>
+                    <p class="card-desc">Bols, assiettes et tajines peints à la main par des potiers de la médina de Fès.</p>
+                  </div>
+                  <div class="card-price">
+                    <span class="card-amount">À partir de 45 €</span>
+                    <a href="#contact" class="card-cta">Commander <i data-lucide="arrow-right" style="width:13px;height:13px"></i></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <article class="card card-small fade-in">
+                <div class="card-img-wrap">
+                  <img
+                    class="card-img"
+                    src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/71a270c5be4b4f2dbfd2668eccff0946c012d96b.jpg"
+                    alt="Arche ornée de zellige et calligraphie arabe"
+                    width="860" height="645"
+                    loading="lazy"
+                    style="aspect-ratio:1/1"
+                  />
+                </div>
+                <div class="card-body">
+                  <span class="card-tag">Architecture</span>
+                  <h3 class="card-title">Arches & Moucharabieh</h3>
+                  <p class="card-desc">Éléments architecturaux sculptés pour riads et hôtels.</p>
+                  <div class="card-price">
+                    <span class="card-amount">Sur devis</span>
+                    <a href="#contact" class="card-cta">Devis <i data-lucide="arrow-right" style="width:13px;height:13px"></i></a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card card-small fade-in">
+                <div class="card-img-wrap">
+                  <img
+                    class="card-img"
+                    src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3c25c6ee919970526b2f55d75bdb0a0ac0a035ee.jpg"
+                    alt="Céramiques artisanales colorées de Fès, Maroc"
+                    width="1000" height="668"
+                    loading="lazy"
+                    style="aspect-ratio:1/1"
+                  />
+                </div>
+                <div class="card-body">
+                  <span class="card-tag">Vaisselle</span>
+                  <h3 class="card-title">Service de table</h3>
+                  <p class="card-desc">Tajines, bols et plateaux ornés de motifs traditionnels.</p>
+                  <div class="card-price">
+                    <span class="card-amount">À partir de 120 €</span>
+                    <a href="#contact" class="card-cta">Commander <i data-lucide="arrow-right" style="width:13px;height:13px"></i></a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ZELLIGE BAND ── -->
+    <div class="zellige-band" aria-hidden="true"></div>
+
+    <!-- ── SAVOIR-FAIRE ── -->
+    <section class="savoir-faire" id="savoir-faire" aria-labelledby="sf-title">
+      <div class="container">
+        <div class="sf-layout">
+          <div class="sf-image-stack fade-in">
+            <img
+              class="sf-img-main"
+              src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d6c553cdf5cd53ebb081719b3d841d2269d0023f.jpg"
+              alt="Plafond de mosaïque zellige, dôme marocain multicolore"
+              width="1024" height="737"
+              loading="lazy"
+            />
+            <img
+              class="sf-img-sec"
+              src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/703db50a700aef7a108fd1e09169327a6b289f79.jpg"
+              alt="Artisan marocain travaillant la poterie en terre cuite"
+              width="710" height="710"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="sf-text fade-in">
+            <p class="section-kicker">Savoir-faire</p>
+            <h2 class="section-title" id="sf-title">L'art du<br><em>geste ancestral</em></h2>
+            <div class="pattern-sep"></div>
+            <p class="section-sub">Chaque pièce suit un processus rigoureux, de la sélection des matières premières à la finition. Nos artisans, formés dès l'enfance, perpétuent des gestes millénaires.</p>
+
+            <div class="sf-steps">
+              <div class="sf-step">
+                <div class="sf-step-num">01</div>
+                <div class="sf-step-content">
+                  <h3>Sélection des matières</h3>
+                  <p>Argile locale, pigments naturels, fils de laine teints à la main — seuls les matériaux d'origine sont utilisés.</p>
+                </div>
+              </div>
+              <div class="sf-step">
+                <div class="sf-step-num">02</div>
+                <div class="sf-step-content">
+                  <h3>Façonnage à la main</h3>
+                  <p>Tour de potier, métier à tisser, burin du tailleur de zellige — chaque outil est l'extension du geste de l'artisan.</p>
+                </div>
+              </div>
+              <div class="sf-step">
+                <div class="sf-step-num">03</div>
+                <div class="sf-step-content">
+                  <h3>Cuisson & finitions</h3>
+                  <p>Four traditionnel à bois, glaçures artisanales, polissage à la main pour une finition irréprochable.</p>
+                </div>
+              </div>
+              <div class="sf-step">
+                <div class="sf-step-num">04</div>
+                <div class="sf-step-content">
+                  <h3>Certification & livraison</h3>
+                  <p>Chaque pièce est certifiée par le Ministère de l'Artisanat du Maroc et livrée avec son certificat d'authenticité.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TÉMOIGNAGES ── -->
+    <section class="testimonials" aria-labelledby="testi-title">
+      <div class="container">
+        <div class="testimonials-header fade-in">
+          <p class="section-kicker">Témoignages</p>
+          <h2 class="section-title" id="testi-title">Ce que disent<br>nos <em>clients</em></h2>
+          <p class="section-sub">Des particuliers, décorateurs et hôtels nous font confiance pour sublimer leurs espaces avec l'artisanat marocain authentique.</p>
+        </div>
+
+        <div class="testi-grid">
+          <div class="testi-card fade-in">
+            <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="testi-text">« Les carreaux zellige ont transformé notre salle de bain en véritable riad. La qualité est exceptionnelle, chaque pièce est unique. »</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: var(--color-primary-light); display:flex;align-items:center;justify-content:center;color:var(--color-primary);font-size:14px;font-weight:600">SL</div>
+              <div>
+                <div class="testi-name">Sophie L.</div>
+                <div class="testi-location">Architecte d'intérieur, Paris</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card fade-in">
+            <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="testi-text">« Nous avons équipé notre riad de Marrakech avec les céramiques d'Artisanat Atlas. Nos clients sont unanimes : c'est magnifique. »</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: var(--color-accent-light); display:flex;align-items:center;justify-content:center;color:var(--color-accent);font-size:14px;font-weight:600">KA</div>
+              <div>
+                <div class="testi-name">Karim A.</div>
+                <div class="testi-location">Propriétaire de riad, Marrakech</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card fade-in">
+            <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <p class="testi-text">« Le service sur mesure est remarquable. Mon service de table a été réalisé exactement selon mes souhaits. Livraison rapide et soignée. »</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: oklch(0.95 0.03 80); display:flex;align-items:center;justify-content:center;color:var(--color-gold);font-size:14px;font-weight:600">MF</div>
+              <div>
+                <div class="testi-name">Marie F.</div>
+                <div class="testi-location">Collectionneuse, Lyon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BANNER ── -->
+    <section class="cta-banner" aria-label="Appel à l'action">
+      <img
+        class="cta-bg"
+        src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4551d7383fc1aa457f9786efc8bedf76dcfad8ae.jpg"
+        alt="Montagnes de l'Atlas marocain, panorama"
+        width="888" height="592"
+        loading="lazy"
+      />
+      <div class="cta-overlay" aria-hidden="true"></div>
+      <div class="container" style="width:100%">
+        <div class="cta-content fade-in">
+          <p class="section-kicker">Commandez dès aujourd'hui</p>
+          <h2 class="cta-title">Sublimez votre espace avec l'<em>Atlas</em></h2>
+          <p class="cta-sub">Commandes sur mesure, conseils personnalisés, livraison internationale. Nos experts vous accompagnent du choix à la pose.</p>
+          <div class="cta-actions">
+            <a href="#contact" class="btn-primary">Demander un devis</a>
+            <a href="#collections" class="btn-ghost">Explorer les collections</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info fade-in">
+            <p class="section-kicker">Contact</p>
+            <h2 class="section-title" id="contact-title">Parlons de<br>votre <em>projet</em></h2>
+            <div class="pattern-sep"></div>
+            <p>Que vous soyez un particulier, un décorateur ou un hôtelier, notre équipe est disponible pour vous conseiller et réaliser votre commande sur mesure.</p>
+
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-item-icon"><i data-lucide="map-pin" style="width:16px;height:16px"></i></div>
+                <span>Rue de la Médina, Marrakech — Maroc</span>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon"><i data-lucide="mail" style="width:16px;height:16px"></i></div>
+                <span>contact@artisanat-atlas.ma</span>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon"><i data-lucide="phone" style="width:16px;height:16px"></i></div>
+                <span>+212 (0) 524 XX XX XX</span>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon"><i data-lucide="clock" style="width:16px;height:16px"></i></div>
+                <span>Lun–Sam, 9h–18h (GMT+1)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form fade-in">
+            <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;margin-bottom:var(--space-6)">Votre demande</h3>
+            <form onsubmit="handleSubmit(event)" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="prenom">Prénom</label>
+                  <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Ahmed" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="nom">Nom</label>
+                  <input class="form-input" type="text" id="nom" name="nom" placeholder="Benali" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="ahmed@exemple.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="sujet">Sujet</label>
+                <input class="form-input" type="text" id="sujet" name="sujet" placeholder="Commande zellige sur mesure" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Décrivez votre projet..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:var(--space-4)">
+                Envoyer le message
+                <i data-lucide="send" style="width:16px;height:16px"></i>
+              </button>
+            </form>
+            <div id="form-success" style="display:none;text-align:center;padding:var(--space-8);color:var(--color-accent)">
+              <i data-lucide="check-circle" style="width:40px;height:40px;margin:0 auto var(--space-4)"></i>
+              <p style="font-family:var(--font-display);font-size:var(--text-lg)">Message envoyé !</p>
+              <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2)">Nous vous répondrons dans les 24h.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex;align-items:center;gap:0.75rem;color:#faf7f2">
+            <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon points="18,3 33,11 33,25 18,33 3,25 3,11" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.8"/>
+              <polygon points="18,9 27,14 27,22 18,27 9,22 9,14" stroke="currentColor" stroke-width="1" fill="none" opacity="0.4"/>
+              <circle cx="18" cy="18" r="3" fill="currentColor" opacity="0.9"/>
+            </svg>
+            <span style="font-family:var(--font-display);font-size:1.2rem;font-weight:500;letter-spacing:0.02em">Artisanat Atlas</span>
+          </div>
+          <p>L'artisanat marocain authentique, directement des mains des artisans jusqu'à votre espace.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="instagram" style="width:15px;height:15px"></i>
+            </a>
+            <a href="#" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="facebook" style="width:15px;height:15px"></i>
+            </a>
+            <a href="#" class="footer-social" aria-label="Pinterest" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="pin" style="width:15px;height:15px"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="#collections">Zellige</a></li>
+            <li><a href="#collections">Céramique</a></li>
+            <li><a href="#collections">Tapis berbères</a></li>
+            <li><a href="#collections">Maroquinerie</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul>
+            <li><a href="#histoire">Notre histoire</a></li>
+            <li><a href="#savoir-faire">Savoir-faire</a></li>
+            <li><a href="#contact">Artisans partenaires</a></li>
+            <li><a href="#contact">Certification</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#contact">Commande sur mesure</a></li>
+            <li><a href="#contact">Livraison internationale</a></li>
+            <li><a href="#contact">Conseil déco</a></li>
+            <li><a href="#contact">Projets hôteliers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Artisanat Atlas — Marrakech, Maroc. Tous droits réservés.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">CGV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── JS ── -->
+  <script>
+    // Theme toggle
+    (function(){
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      r.setAttribute('data-theme', d);
+      const moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      const sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+      if(t) {
+        t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
+        t.addEventListener('click', () => {
+          d = d === 'dark' ? 'light' : 'dark';
+          r.setAttribute('data-theme', d);
+          t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
+          t.setAttribute('aria-label', 'Passer en mode ' + (d === 'dark' ? 'clair' : 'sombre'));
+        });
+      }
+    })();
+
+    // Mobile menu
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle && toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    function closeMobileMenu() {
+      menu.classList.remove('open');
+      toggle && toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // Contact form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      if(window.lucide) lucide.createIcons();
+    }
+
+    // Init Lucide icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if(window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
